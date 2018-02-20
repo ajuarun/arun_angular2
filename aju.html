@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<script src="angular.min.js"></script>
+<script>
+angular.module('aju',[]).controller('preman',function($scope){
+   $scope.name='';
+  $scope.lastname='';
+$scope.users=[];
+  $scope.add=function(){
+    var user={ 
+          "name": $scope.name,
+          "lastname":$scope.lastname
+    }
+
+// return $scope.fulname=$scope.name + " " + $scope.lastname;
+return $scope.users.push(user);
+}
+
+$scope.remove=function(){
+$scope.users.pop();
+$scope.users.splice(index,1);
+}
+
+});
+</script>
+<body>
+
+<div ng-app="aju" ng-controller="preman">
+<p>add something in input box:</p>
+<p>Name : <input type ="text" ng-model="name" placeholder="Enter name here">
+<p>lastName : <input type ="text" ng-model="lastname" placeholder="Enter name here">
+ 
+<button ng-click="add()">add</button>
+<button ng-click="remove()">remove</button>
+
+
+<table>
+<tr>
+   <td>First Name</td>
+   <td>Dad Name</td>
+</tr>
+<tr ng-repeat="p in users">
+   <td>{{p.name}}</td>
+<td>{{p.lastname}}</td>
+ <td></td>
+</tr>
+</table>
+
+</div>
+
+</body>
+</html>

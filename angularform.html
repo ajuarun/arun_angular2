@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<script src="angular.min.js"></script>
+<script>
+angular.module( 'vk',[]).controller('firstController',function($scope,$rootScope){
+
+$scope.Login=true;
+$rootScope.home=false;
+$scope.click=[];
+$scope.click1=function(){
+if($scope.name=="admin" && $scope.password=="aju123")
+{
+$scope.Login=false;
+$rootScope.home=true;
+$rootScope.message="welcome";
+}
+}
+})
+.controller('secondController',function($scope){
+});
+</script>
+</head>
+<body ng-app="vk">
+<div ng-controller="firstController" ng-show="Login">
+<h2>first controller </h2>
+<p>userName: <input type="text" ng-model="name"></p>
+<br/>
+<p>password: <input type="text" ng-model="password"></p>
+</br>
+<button ng-click="click1()" ng-model="mustShow" > login</button>
+
+</div>
+<div ng-controller="secondController" ng-show="home">
+{{message}}
+</div>
+
+</body>
+</html>
